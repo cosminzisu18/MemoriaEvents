@@ -1,0 +1,34 @@
+<div class="container" id="prețuri">
+  <div class="text-center">
+      <h2 class="display-4 text-uppercase">{{prices[0]?.titleSubtitle.title}}</h2>
+      <h3 class="small subtitle text-muted">{{prices[0]?.titleSubtitle.subTitle}}</h3>
+  </div>
+  
+    <div *ngIf="isAuthorized">
+      <i class="fa-solid fa-plus text-white bg-danger rounded-circle p-2" 
+        style="cursor: pointer; margin-bottom: 20px;" (click)="addEdit()"></i>
+    </div>
+  <div *ngIf="!isAuthorized"></div>
+  <div class="section right1" *ngFor="let price of prices">
+    <img [src]="imageUrl + price.photoUrl" style="border-radius: 5px;" alt="Imagine stanga">
+    <div class="right-text">
+      <div class="pricing-card basic">
+      <div *ngIf="isAuthorized">
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-pen-to-square text-white bg-danger rounded-circle p-2 mr-2" style="cursor: pointer;" (click)='addEdit(price.id)'></i>
+          <i class="fa-solid fa-trash text-white bg-danger rounded-circle p-2" style="cursor: pointer;" (click)="delete(price)"></i>
+        </div>
+      </div>
+        <div class="heading"><h4>{{ price.titleService }}</h4></div>
+        <ul>
+          <li *ngFor="let characteristic of price.pricesCharacteristics" class="characteristic"><i class="fa fa-check mr-2" aria-hidden="true"></i>  {{ characteristic.characteristics }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+                   
+
+    
+ 
+  

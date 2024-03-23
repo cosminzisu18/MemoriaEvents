@@ -1,0 +1,103 @@
+
+.container {
+    width: 48%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.inner .common__inner {
+    width: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+    box-sizing: border-box;
+}
+.inner .inner1 {
+    background: #969696;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.inner .inner2 {
+    background: #d8bc00;
+}
+.inner .inner3 {
+    background: #006463;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.inner .inner1 .img, .inner .inner2 .img, .inner .inner3 .img {
+    height: 65px;
+}
+.inner .inner1 .title, .inner .inner2 .title, .inner .inner3 .title {
+    color: white;
+    font-size: 22px;
+    font-family: system-ui;
+    height: 50px;
+}
+.inner .inner1 .desc, .inner .inner2 .desc, .inner .inner3 .desc {
+    color: #ffffffbf;
+    font-size: 15px;
+    font-family: system-ui;
+    height: 160px;
+    line-height: 23px;
+}
+.inner .inner1 .button, .inner .inner2 .button, .inner .inner3 .button {
+    height: calc(100% - 275px);
+}
+.inner .inner1 .button button, .inner .inner2 .button button, .inner .inner3 .button button {
+    background: white;
+    border: unset;
+    padding: 13px 27px;
+    border-radius: 20px;
+    color: #555555;
+    font-family: system-ui;
+    font-weight: bold;
+    cursor: pointer;
+}
+.inner .inner2 .button button {
+    color: #675d02;
+}
+.inner .inner3 .button button {
+    color: #015856;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 1rem; 
+    font-style: italic;
+    margin-bottom: 50px;
+  }
+  
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 100px auto;
+        position: unset;
+        top: unset;
+        left: unset;
+        transform: unset;
+    }
+    .inner {
+        flex-direction: column;
+
+    }
+    .inner .common__inner {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .inner .inner1 {
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 8px;
+    }
+    .inner .inner3 {
+        border-bottom-left-radius: 8px;
+        border-top-right-radius: unset;
+    }
+}

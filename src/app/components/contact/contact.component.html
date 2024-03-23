@@ -1,0 +1,22 @@
+<div class="contact" id="contact" style="background-image: url('../../../assets/contact/contact-image.png');">
+    <div *ngIf="isAuthorized">
+        <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2 edit-button" (click)='edit(contact.id)'></i>
+    </div>
+    <div class="contact-info">
+        <div class="text-center">
+            <h2 class="display-4 text-uppercase">{{contact.titleSubtitle?.title}}</h2>
+            <h3 class="small subtitle">{{contact.titleSubtitle?.subTitle}}</h3>
+        </div>
+        <p class="btn btn-dark btn-social mx-2 mb-3 mt-3"><i class="fas fa-home"></i></p> {{contact.address}}<br>
+        <p class="btn btn-dark btn-social mx-2 mb-3"><i class="fa fa-phone"></i></p> 0{{contact.number}}<br>
+        <p class="btn btn-dark btn-social mx-2 mb-3"><i class="fas fa-envelope"></i></p> {{contact.email}}<br>
+    </div>
+   
+</div>
+<div class="row align-items-center footer">
+    <div class="my-3 my-lg-0">
+        <a class="btn btn-dark btn-social mx-2" href="{{contact.socialMedia?.instagram}}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="{{contact.socialMedia?.TikTok}}" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a class="btn btn-dark btn-social mx-2" href="{{contact.socialMedia?.facebook}}" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+</div>

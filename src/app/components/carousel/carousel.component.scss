@@ -1,0 +1,28 @@
+#carousel{
+    margin-top:900px;
+    background-color: rgb(225, 225, 225);
+}
+.edit-carousel{
+   padding: 1px;
+}
+.images-carousel{
+    height: 600px;
+    width: 1200px;
+    margin: 0 auto;
+    // padding: 30px;
+    border: 2px black;
+}
+
+@media (max-width: 768px) {
+    #carousel{
+        margin-top:5px;
+    }
+    .images-carousel{
+        height: 400px;
+        width: 768px; 
+    }
+    .edit-carousel{
+        margin-bottom: 10px;
+     }
+    
+  }

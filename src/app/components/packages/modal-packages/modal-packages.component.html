@@ -1,0 +1,31 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza Contact</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="packagetype" class="form-label">Tipul Pachetului</label>
+            <input type="text" class="form-control" id="packagetype" [(ngModel)] = "modal.packageType" name="packagetype"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+  
+          <div class="mb-3">
+            <label for="packageinfo" class="form-label">Informatii despre pachet</label>
+            <input type="text" class="form-control" id="packageinfo" [(ngModel)] = "modal.packageInfo" name="packageinfo" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+
+          <div class="mb-3">
+            <label for="packageprice" class="form-label">Pret</label>
+            <input type="text" class="form-control" id="packageprice" [(ngModel)] = "modal.packagePrice" name="packageprice" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

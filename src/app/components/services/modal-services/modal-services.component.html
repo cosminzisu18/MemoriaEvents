@@ -1,0 +1,27 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>{{id_service ? 'Edit' : 'Add'}} Serviciu</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="icon" class="form-label">Icon</label>
+            <input type="text" class="form-control" id="icon" [(ngModel)] = "modal.icon" name="icon"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+          <p><a href="https://fontawesome.com/icons/" target="_blank" style="text-decoration: none;"><i class="fa-solid fa-icons"></i> - icons</a></p>
+  
+          <div class="mb-3">
+            <label for="servicename" class="form-label">Nume Serviciu</label>
+            <input type="text" class="form-control" id="servicename" [(ngModel)] = "modal.serviceName" name="servicename" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  
