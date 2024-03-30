@@ -33,6 +33,9 @@ import { ModalServicesComponent } from './components/services/modal-services/mod
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { ModalPricesComponent } from './components/prices/modal-prices/modal-prices.component';
 
+import { NgsRevealModule } from 'ngx-scrollreveal';
+import { ModalSocialmediaComponent } from './components/contact/modal-socialmedia/modal-socialmedia.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +57,7 @@ import { ModalPricesComponent } from './components/prices/modal-prices/modal-pri
     ModalServicesComponent,
     ConfirmDialogComponent,
     ModalPricesComponent,
+    ModalSocialmediaComponent,
   ],
   imports: [
     BrowserModule,

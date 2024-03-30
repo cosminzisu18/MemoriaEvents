@@ -5,15 +5,20 @@
     </div>
     <div class="inner">
         <div class="common__inner" *ngFor="let package of packages; let i = index" [class]="'inner' + (i + 1)">
+            <div *ngIf="isAuthorized">
+                <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='edit(package.id)'></i>
+            </div>
+            <div class="button"><button>{{ package.packagePrice }} lei</button></div>
             <span class="fa-stack fa-4x">
                 <i class="fa fa-star fa-stack-1x" [ngStyle]="{ color: getColor(i) }" aria-hidden="true"></i> 
             </span>
             <div class="title">{{ package.packageType }}</div>
             <div class="desc">{{ package.packageInfo }}</div>
-            <div class="button"><button>{{ package.packagePrice }} lei</button></div>
-            <div *ngIf="isAuthorized">
-                <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='edit(package.id)'></i>
-            </div>
+            <ul style="list-style-type: none;">
+                <li *ngFor="let service of package.services">
+                    <i class="fa fa-check mr-2" aria-hidden="true"></i> {{ service }}
+                </li>
+            </ul>
         </div>
     </div>
 </div>

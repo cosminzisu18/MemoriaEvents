@@ -1,0 +1,31 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza Retelele de Socializare</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="facebook" class="form-label">Facebook</label>
+            <input type="text" class="form-control" id="antettext" [(ngModel)] = "modal.facebook" name="adresa"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+  
+          <div class="mb-3">
+            <label for="instagram" class="form-label">Instagram</label>
+            <input type="text" class="form-control" id="instagram" [(ngModel)] = "modal.instagram" name="instagram" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+
+          <div class="mb-3">
+            <label for="tiktok" class="form-label">TikTok</label>
+            <input type="text" class="form-control" id="tiktok" [(ngModel)] = "modal.tikTok" name="tiktok" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

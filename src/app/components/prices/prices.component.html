@@ -20,6 +20,14 @@
         </div>
       </div>
         <div class="heading"><h4>{{ price.titleService }}</h4></div>
+        <div *ngIf="price.oldPrice" class="heading" style="color: red; padding-left: 50px; ">
+          <h2 style="display: inline; text-decoration: line-through;">{{ price.oldPrice }}</h2> lei/{{price.afterPrice}}
+        </div>
+        <div *ngIf="price.price > 0"class="heading" style="color: green; padding-left: 50px;">
+          <h2 style="display: inline;">{{ price.price }}</h2> lei/{{price.afterPrice}}
+        </div>
+      
+
         <ul>
           <li *ngFor="let characteristic of price.pricesCharacteristics" class="characteristic"><i class="fa fa-check mr-2" aria-hidden="true"></i>  {{ characteristic.characteristics }}</li>
         </ul>

@@ -22,18 +22,14 @@ export class PricesComponent implements OnInit {
   constructor(private el: ElementRef,private http: HttpClient, private modal: NgbModal, private toast: ToastService) {}
 
   ngOnInit(): void {
-    if(this.isAuthorized){
-      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
-    }
-   
+    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
     this.loadData();
   }
   ngAfterViewInit(): void{
     gsap.registerPlugin(ScrollTrigger);
-    this.setupAnimations();
   }
 
-  setupAnimations(): void {
+  initScrollAnimations(): void {
     const animations: [string, number][] = [
       ['.right1', -50],
       // ['.left1', 50],
@@ -60,6 +56,7 @@ export class PricesComponent implements OnInit {
     this.http.get('http://localhost:5080/api/prices').subscribe((res: any) => {
       this.prices = res;
       this.idTitleSubtitle = res[0].titleSubtitleId;
+      this.initScrollAnimations();
     })
   }
 

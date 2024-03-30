@@ -17,12 +17,10 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   isAuthorized = false;
   services: any[] = [];
 
-  constructor(private el: ElementRef,private http: HttpClient, private modal: NgbModal, private toast: ToastService) {}
+  constructor(private el: ElementRef, private http: HttpClient, private modal: NgbModal, private toast: ToastService) {}
 
   ngOnInit(): void {
-    if(this.isAuthorized){
       this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
-    }
     this.loadData();
   }
 

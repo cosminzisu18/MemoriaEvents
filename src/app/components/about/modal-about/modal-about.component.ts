@@ -11,13 +11,14 @@ import { ToastService } from '../../../services/toast.service';
 export class ModalAboutComponent {
 
   @Input() public id_about: any;
-  modal = {} as any;  showError = false;
+  modal: any ;  showError = false;
 
   constructor(private http: HttpClient, public activeModal: NgbActiveModal, private toast: ToastService) { }
 
   ngOnInit(): void { 
     this.http.get('http://localhost:5080/api/abouts').subscribe(( res:any ) => {
       this.modal= res[0];
+      console.log("Modal ", this.modal)
     })
   };
 

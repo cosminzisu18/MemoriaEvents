@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'; 
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { ModalAboutComponent } from './modal-about/modal-about.component';
 
@@ -12,26 +12,25 @@ import { ModalAboutComponent } from './modal-about/modal-about.component';
 })
 export class AboutComponent implements OnInit {
 
-  isAuthorized = false;
-  about = {} as any;
+  isAuthorized: boolean = false;
+  about: any = {};
 
-  constructor(private http: HttpClient, private modal: NgbModal) {}
+  constructor(private el: ElementRef,private http: HttpClient, private modal: NgbModal,) {}
 
   ngOnInit(): void {
-    if(this.isAuthorized){
-      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
-    }
-    gsap.registerPlugin(ScrollTrigger);
-    this.initAnimations();
+    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true';
     this.loadData();
+    console.log("Este autorizat? ", this.isAuthorized);
   }
 
-  private initAnimations(): void {
+  initAnimations(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '#about', 
+        trigger: '#viziune',
         start: 'top 20%',
-        end: 'bottom top', 
+        end: 'bottom top',
         toggleActions: 'play none none none'
       }
     });
@@ -45,6 +44,7 @@ export class AboutComponent implements OnInit {
   loadData(): void {
     this.http.get('http://localhost:5080/api/abouts').subscribe((res: any) => {
       this.about = res[0];
+      this.initAnimations();
     });
   }
 

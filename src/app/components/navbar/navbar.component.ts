@@ -16,10 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(private http: HttpClient, private modal: NgbModal) { }
 
   ngOnInit(): void {
-    if(this.isAuthorized){
-      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
-    }
-    
+    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
     this.loadData();
   };
 
