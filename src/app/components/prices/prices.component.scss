@@ -2,6 +2,10 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding-top: 150px;
+}
+#prețuri{
+  background-color: rgb(243, 241, 241);
 }
 
 .heading{
@@ -69,7 +73,7 @@ img {
   }
 
   .container{
-    padding-top: 20px;
+    padding-top: 50px;
   }
 }
 

@@ -35,6 +35,7 @@ import { ModalPricesComponent } from './components/prices/modal-prices/modal-pri
 
 import { NgsRevealModule } from 'ngx-scrollreveal';
 import { ModalSocialmediaComponent } from './components/contact/modal-socialmedia/modal-socialmedia.component';
+import { LocationsComponent } from './components/locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ModalSocialmediaComponent } from './components/contact/modal-socialmedi
     ConfirmDialogComponent,
     ModalPricesComponent,
     ModalSocialmediaComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,

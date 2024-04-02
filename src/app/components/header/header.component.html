@@ -1,8 +1,6 @@
 <header class="masthead position-relative" id="header" style="background-image: url('../../../assets/header-bg.jpg');">
-    
-    <div class="masthead-subheading left-to-right-h">{{headerinfo?.antetText}}</div> 
-    
-    <a class="btn btn-warning btn-xl text-uppercase right-to-left-h" href="#services">{{headerinfo?.buttonText}}</a>
+    <img src="../../../assets/logo2.png" class="logo-images" style="width: 500px; margin-bottom: 100px;" data-aos="fade-down-left" data-aos-duration="2000">
+    <br><a class="custom-button btn-xl text-uppercase" data-aos="fade-down-right" data-aos-duration="2000" href="#servicii">{{headerinfo?.buttonText}}</a>
     <div *ngIf="isAuthorized">
         <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2 edit-button" (click)='edit(headerinfo.id)'></i>
     </div>

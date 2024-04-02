@@ -1,18 +1,17 @@
-import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'; 
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { ModalServicesComponent } from './modal-services/modal-services.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ToastService } from '../../services/toast.service';
+import AOS from 'aos'; 
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
-export class ServicesComponent implements OnInit, AfterViewInit {
+export class ServicesComponent implements OnInit {
 
   isAuthorized = false;
   services: any[] = [];
@@ -20,33 +19,21 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   constructor(private el: ElementRef, private http: HttpClient, private modal: NgbModal, private toast: ToastService) {}
 
   ngOnInit(): void {
-      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
+    if (typeof sessionStorage !== 'undefined') {
+      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true';
+    }
     this.loadData();
-  }
+    AOS.init({disable: 'mobile'});//AOS - 2
+    AOS.refresh();//refresh method is called on window resize and so on, as it doesn't require to build new store with AOS elements and should be as light as possible.
 
-  ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger);
-    this.initScrollAnimations();
   }
 
   loadData(): void {
     this.http.get('http://localhost:5080/api/services').subscribe((res: any) => {
       this.services = res;
-    })
-  };
-
-  private initScrollAnimations(): void {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: "#servicii",
-        start: 'top 10%',
-        end: 'bottom top',
-        toggleActions: 'play none none none'
-      },
-    })
-    .from('.left-to-right', { opacity: 0, x: -100 , duration: 2 })
-    // .from('.right-to-left', { x: '100%', opacity: 0, rotation: 360,  duration: 1 }, "-=1")
+    });
   }
+
 
   addEdit(id_service?: any) { 
     const modalRef = this.modal.open(ModalServicesComponent, { size: 'lg', windowClass: 'modal-xl', keyboard: false, backdrop: 'static' });

@@ -9,12 +9,12 @@
     margin-left: 5px;
   }
 
-  .custom-brand {
-    color: yellow; 
-    margin-left: 200px;
-    font-size: 30px;
-    font-family: 'Arial Black', sans-serif;
-  }
+  // .custom-brand {
+  //   color: yellow; 
+  //   margin-left: 200px;
+  //   font-size: 30px;
+  //   font-family: 'Arial Black', sans-serif;
+  // }
   
   .transparent-bg {
     background-color: transparent !important; 
@@ -38,9 +38,6 @@
     transition: color 0.3s; 
   }
 
-  .nav-link:hover {
-    color: yellow; 
-  }
   .navbar-collapse{
     margin-right: 100px;
   }
@@ -53,6 +50,10 @@
   }
   .sm-icons .nav-link {
     padding-right: 1em;
+  }
+  .logo-images{
+    height: 60px;
+    margin-left: 300px;
   }
   
   

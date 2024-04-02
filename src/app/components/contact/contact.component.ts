@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { ModalContactComponent } from './modal-contact/modal-contact.component';
 import { ModalSocialmediaComponent } from './modal-socialmedia/modal-socialmedia.component';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-contact',
@@ -18,8 +19,13 @@ export class ContactComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
+    if (typeof sessionStorage !== 'undefined') {
+      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true';
+    }
     this.loadData();
+
+    AOS.init({disable: 'mobile'});
+    AOS.refresh();
   }
 
   loadData(): void {

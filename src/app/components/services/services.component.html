@@ -1,34 +1,31 @@
-<div class="services  d-flex align-items-center justify-content-center" id="servicii">
-    <div class="container mt-5">     
-        <div class="text-center">
-            <h2 class="display-4 text-uppercase">{{services[0]?.titleSubtitle?.title}}</h2>
-            <h3 class="small subtitle text-muted">{{services[0]?.titleSubtitle?.subTitle}}</h3>
-        </div>
-        <div *ngIf="isAuthorized" class="d-inline-block position-relative">
-            <i class="fa-solid fa-plus text-white bg-danger rounded-circle p-2" 
-                style="cursor: pointer;" (click)='addEdit()'></i>
-        </div>
-        <div class="row text-center mt-5 left-to-right">
-            <div class="col-md-4" *ngFor="let service of services; let i = index">
-                <div *ngIf="isAuthorized">
-                    <div class="mb-3">
-                        <div class="d-inline-block position-relative ml-2">
-                            <i class="fa-solid fa-pen-to-square text-white bg-danger rounded-circle p-2" 
-                                style="cursor: pointer;" (click)='addEdit(service.id)'></i>
-                        </div>
-                        <div class="d-inline-block position-relative ml-2">
-                            <i class="fa-solid fa-trash text-white bg-danger rounded-circle p-2" 
-                                style="cursor: pointer;" (click)='delete(service)'></i>
-                        </div>
-                    </div>
-                </div>  
-                <span class="fa-stack fa-4x"> 
-                    <i class="fas fa-circle fa-stack-2x text-warning"></i>
-                    <i [ngClass]="[service.icon, 'fa-stack-1x fa-inverse services-hover mb-3']"></i>
-                </span>
-                    <h4 class="my-3">{{ service.serviceName }}</h4>
+<div class="services d-flex align-items-center justify-content-center" id="servicii">
+    <div class="container mt-5">
+      <div class="text-center">
+        <h2 class="display-4 text-uppercase" data-aos="fade-down" data-aos-duration="2000">{{services[0]?.titleSubtitle?.title}}</h2>
+        <h3 class="small subtitle text-muted" data-aos="fade-up" data-aos-duration="2000">{{services[0]?.titleSubtitle?.subTitle}}</h3>
+      </div>
+      <div *ngIf="isAuthorized" class="d-inline-block position-relative">
+        <i class="fa-solid fa-plus text-white bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='addEdit()'></i>
+      </div>
+      <div class="row text-center left-to-right mt-5"> 
+        <div class="col-md-4" *ngFor="let service of services; let i = index" [attr.data-aos]="i < 3 ? 'fade-right' : 'fade-left'" data-aos-duration="2000">
+          <div *ngIf="isAuthorized">
+            <div class="mb-3">
+              <div class="d-inline-block position-relative ml-2">
+                <i class="fa-solid fa-pen-to-square text-white bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='addEdit(service.id)'></i>
+              </div>
+              <div class="d-inline-block position-relative ml-2">
+                <i class="fa-solid fa-trash text-white bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='delete(service)'></i>
+              </div>
             </div>
+          </div>
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x" style="color: #FDB05A;"></i>
+            <i [ngClass]="[service.icon, 'fa-stack-1x fa-inverse services-hover mb-3']"></i>
+          </span>
+          <h4 class="my-3">{{ service.serviceName }}</h4>
         </div>
+      </div>
     </div>
-</div>
-        
+  </div>
+  

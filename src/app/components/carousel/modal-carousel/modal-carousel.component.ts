@@ -27,14 +27,17 @@ export class ModalCarouselComponent implements OnInit {
   };
 
   save(){
-    this.http.put(`http://localhost:5080/api/carousels/${this.id_carousel}`, this.modal).subscribe(() => {
-      this.activeModal.close(),
-      this.toast.success('Modificare carousel cu succes!');
-    },
-      (error) => {
-        console.log("Eroare la salvare ", error);
-      }
-    );
+    if(this.id_carousel){
+      this.http.put(`http://localhost:5080/api/carousels/${this.id_carousel}`, this.modal).subscribe(() => {
+        this.activeModal.close(),
+        this.toast.success('Modificare carousel cu succes!');
+      },(error) => {console.log("Eroare la salvare ", error);});
+    }else{
+      this.http.post(`http://localhost:5080/api/carousels`, this.modal).subscribe(() => {
+        this.activeModal.close(),
+        this.toast.success('Adaugare carousel cu succes!');
+      },(error) => {console.log("Eroare la salvare ", error);});
+    }
   };
 
   add(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ModalHeaderComponent } from './modal-header/modal-header.component';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-header',
@@ -16,8 +17,13 @@ export class HeaderComponent implements OnInit {
   constructor(private http: HttpClient, private modal: NgbModal) { }
 
   ngOnInit(): void {
-    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
+    if (typeof sessionStorage !== 'undefined') {
+      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true';
+    }
     this.loadData();
+
+    AOS.init({disable: 'mobile'});
+    AOS.refresh();
   }
 
   loadData(): void {

@@ -1,11 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'; 
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { ModalPricesComponent } from './modal-prices/modal-prices.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ToastService } from '../../services/toast.service';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-prices',
@@ -22,41 +21,20 @@ export class PricesComponent implements OnInit {
   constructor(private el: ElementRef,private http: HttpClient, private modal: NgbModal, private toast: ToastService) {}
 
   ngOnInit(): void {
-    this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true'
+    if (typeof sessionStorage !== 'undefined') {
+      this.isAuthorized = sessionStorage.getItem('isAuthorized') == 'true';
+    }
     this.loadData();
-  }
-  ngAfterViewInit(): void{
-    gsap.registerPlugin(ScrollTrigger);
+
+    AOS.init({disable: 'mobile'});
+    AOS.refresh();
   }
 
-  initScrollAnimations(): void {
-    const animations: [string, number][] = [
-      ['.right1', -50],
-      // ['.left1', 50],
-      // ['.right2', -50],
-      // ['.left2', 50],
-      // ['.right3', -50],
-      // ['.left3', 50]
-    ];
-
-    animations.forEach(([selector, x]: [string, number]) => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#prețuri',
-          start: 'top 80%', 
-          end: 'bottom top', 
-          toggleActions: 'play none none none'
-        }
-      })
-      .from(selector, { opacity: 0, x, duration: 1 });
-    });
-  }
 
   loadData(): void {
     this.http.get('http://localhost:5080/api/prices').subscribe((res: any) => {
       this.prices = res;
       this.idTitleSubtitle = res[0].titleSubtitleId;
-      this.initScrollAnimations();
     })
   }
 

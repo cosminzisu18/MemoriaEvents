@@ -1,6 +1,6 @@
 #carousel{
     margin-top:1100px;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(243, 241, 241);
 }
 .edit-carousel{
    padding: 1px;
@@ -31,3 +31,43 @@
         margin-top: -25px;;
     }
   }
+// .background {
+//     display: grid;
+//     place-items: center;
+//     height: 90vh;
+//     padding: 5vh 0 0 0;
+//   }
+  
+//   .gallery {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 16px;
+//     max-width: 1200px;
+//   }
+  
+//   .img-card {
+//     position: relative;
+//     left: 0px;
+//     width: 120px;
+//     border-radius: 1em;
+//     height: 80vh;
+//     overflow: hidden;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     object-fit: cover;
+//     transition: 0.3s ease-in-out;
+//     flex: 0.25; 
+//     background: beige;
+//   }
+  
+//   .img-card img {
+//     min-height: 80vh;
+//   }
+  
+//   .img-card:hover {
+//     flex: 2;
+//     cursor: pointer;
+//   }
+
+
