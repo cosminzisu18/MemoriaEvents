@@ -1,0 +1,89 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza about</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="title" class="form-label">Titlu</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="modal.title" name="title"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+          <div class="mb-3">
+            <label for="subtitle" class="form-label">Subtitlu</label>
+            <input type="text" class="form-control" id="subtitle" [(ngModel)]="modal.subtitle" name="subtitle"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+          <div class="mb-3">
+            <label for="text1" class="form-label">Text1</label>
+            <textarea class="form-control" id="text1" [(ngModel)]="modal.text1" name="text1" [ngClass]="showError && !modal.text1 ? 'error' : ''" placeholder="Enter text"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="text2" class="form-label">Text2</label>
+            <textarea class="form-control" id="text2" [(ngModel)]="modal.text2" name="text2" [ngClass]="showError && !modal.text2 ? 'error' : ''" placeholder="Enter text"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" [(ngModel)]="modal.imageUrl" name="imageUrl" placeholder="Enter image URL">
+          </div>
+          <div class="mb-3" *ngIf="modal.imageUrl">
+            <label>Vizualizare imagine:</label><br>
+            <img [src]="modal.imageUrl" alt="Image preview" style="max-width: 100%; max-height: 300px;">
+          </div>
+
+          <fieldset class="mb-3">
+            <legend>Calitate1</legend>
+            <div class="mb-3">
+              <label for="icon1" class="form-label">Icoana Calitate1</label>
+              <input type="text" class="form-control" id="icon1" [(ngModel)]="modal.aboutQualities[0].iconQualities" name="icon1" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="title-q1" class="form-label">Titlu Calitate1</label>
+              <input type="text" class="form-control" id="title-q1" [(ngModel)]="modal.aboutQualities[0].titleQualities" name="title-q1" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="text-q1" class="form-label">Text Calitate1</label>
+              <textarea  type="text" class="form-control" id="text-q1" [(ngModel)]="modal.aboutQualities[0].textQualities" name="text-q1" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name"></textarea> 
+            </div>
+          </fieldset>
+
+          <fieldset class="mb-3">
+            <legend>Calitate2</legend>
+            <div class="mb-3">
+              <label for="icon2" class="form-label">Icoana Calitate2</label>
+              <input type="text" class="form-control" id="icon2" [(ngModel)]="modal.aboutQualities[1].iconQualities" name="icon2" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="title-q2" class="form-label">Titlu Calitate2</label>
+              <input type="text" class="form-control" id="title-q2" [(ngModel)]="modal.aboutQualities[1].titleQualities" name="title-q2" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="text-q2" class="form-label">Text Calitate2</label>
+              <textarea  type="text" class="form-control" id="text-q2" [(ngModel)]="modal.aboutQualities[1].textQualities" name="text-q2" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name"></textarea> 
+            </div>
+          </fieldset>
+
+          <fieldset class="mb-3">
+            <legend>Calitate3</legend>
+            <div class="mb-3">
+              <label for="icon3" class="form-label">Icoana Calitate3</label>
+              <input type="text" class="form-control" id="icon3" [(ngModel)]="modal.aboutQualities[2].iconQualities" name="icon3" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="title-q3" class="form-label">Titlu Calitate3</label>
+              <input type="text" class="form-control" id="title-q3" [(ngModel)]="modal.aboutQualities[2].titleQualities" name="title-q3" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+            </div>
+            <div class="mb-3">
+              <label for="text-q3" class="form-label">Text Calitate3</label>
+              <textarea  type="text" class="form-control" id="text-q3" [(ngModel)]="modal.aboutQualities[2].textQualities" name="text-q3" [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name"></textarea> 
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

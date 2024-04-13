@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top" [ngClass]="{'transparent-bg': !scrolled, 'scrolled': scrolled}" >
+  <div class="container-fluid">
+    <div class="nav-item" *ngIf="isAuthorized">
+      <span>
+        <i class="fa-solid fa-user-tie text-danger"></i>
+        <p class="administrator">administrator</p>
+      </span>
+    </div>
+    <a href="#header"><img src="../../../assets/logo.png" class="logo-images"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngFor="let titleSubtitle of navbar.titleSubtitles">
+          <a class="nav-link" [href]="'#' + titleSubtitle.title.toLowerCase()">{{ titleSubtitle.title }}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sm-icons">
+        <li><a class="nav-link" href="{{navbarNavv.socialMedia?.facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a class="nav-link" href="{{navbarNavv.socialMedia?.instagram}}" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a class="nav-link" href="{{navbarNavv.socialMedia?.TikTok}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+        <li><a class="nav-link" href="tel:0{{navbarPhone}}"><i class="fa-solid fa-phone p-1"></i>0{{navbarPhone}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

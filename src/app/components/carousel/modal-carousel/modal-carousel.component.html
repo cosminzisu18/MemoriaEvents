@@ -1,0 +1,31 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza Imagini din Carousel</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+            <div class="mb-3 d-flex align-items-center" *ngFor="let img of modal; let i = index">
+              <label class="form-label col-3">Imagine {{ i + 1 }}</label>
+              <div class="col-7">
+                <input type="text" class="form-control" [id]="'img' + i" [(ngModel)]="img.imageUrl" [name]="'img' + i"
+                  [ngClass]="showError && !img.imageUrl ? 'error' : ''" placeholder="Enter image URL">
+              </div>
+              <div class="col-3">
+              <i class="fa-solid fa-trash text-white bg-danger rounded-circle p-2"
+                style="cursor: pointer;" (click)='delete(img)'></i>
+                <!-- (click)='delete(service)' -->
+            </div>
+            </div>
+          </form>
+          <i class="fa-solid fa-plus text-white bg-danger rounded-circle p-2" 
+                style="cursor: pointer;" (click)="add()"></i>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

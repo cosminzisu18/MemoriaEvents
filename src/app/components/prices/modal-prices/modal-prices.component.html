@@ -1,0 +1,66 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>{{id_price? 'Editeaza ':'Adauga '}}Seriviciu cu Preturi</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="photo" class="form-label">Imagine</label>
+            <input type="text" class="form-control" id="photo" [(ngModel)] = "modal.photoUrl" name="photo"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="imagine">
+          </div>
+  
+          <div class="mb-3">
+            <label for="title" class="form-label">Titlu Serviciu</label>
+            <input type="text" class="form-control" id="title" [(ngModel)] = "modal.titleService" name="title" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="titlu">
+          </div>
+
+          <div class="mb-3">
+            <label for="oldPrice" class="form-label">Pret Vechi</label>
+            <input type="text" class="form-control" id="oldPrice" [(ngModel)] = "modal.oldPrice" name="oldPrice" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="pret vechi">
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Pret</label>
+            <input type="text" class="form-control" id="price" [(ngModel)] = "modal.price" name="price" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="pret">
+          </div>
+
+          <div class="mb-3">
+            <label for="afterPrice" class="form-label">Dupa pret</label>
+            <input type="text" class="form-control" id="afterPrice" [(ngModel)] = "modal.afterPrice" name="afterPrice" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="text">
+          </div>
+          <p style="color:red;">*se pune la pret vechi si pret 0 pentru a nu afisa</p>
+          <!-- <div class="mb-3" *ngFor="let characteristic of modal.pricesCharacteristics">
+            <label for="characteristic" class="form-label">Caracteristici</label>
+            <input type="text" class="form-control" id="characteristic" [(ngModel)] = "characteristic.characteristics" name="characteristic" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div> -->
+
+          <fieldset>
+            <legend>Caracteristici</legend>
+            <div class="mb-3 d-flex align-items-center" *ngFor="let characteristic of modal.pricesCharacteristics; let i = index">
+              <label for="characteristic{{i}}" class="form-label col-3">caracteristica{{ i + 1 }}:</label>
+              <div class="col-7">
+                <input type="text" class="form-control" [id]="'characteristic' + i" [(ngModel)]="characteristic.characteristics" [name]="'characteristic' + i" [ngClass]="showError && !modal.buttontextEmployer ? 'error' : ''" placeholder="caracteristica">
+              </div>
+              <div class="col-3">
+                <i class="fa-solid fa-trash text-white bg-danger rounded-circle p-2"
+                  style="cursor: pointer;" (click)='delete(characteristic)'></i>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div *ngIf="id_price">
+            <i class="fa-solid fa-plus text-white bg-danger rounded-circle p-2" 
+                style="cursor: pointer;" (click)="add()"></i>
+        </div>
+        <p *ngIf="!id_price" style="color:red;">*caracteristicile se vor adaugă după ce se salvează serviciul prin apăsarea butonului de modificare pe serviciul dorit.</p>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  
+

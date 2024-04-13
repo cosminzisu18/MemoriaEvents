@@ -1,0 +1,42 @@
+
+  <div *ngIf="isAuthorized" class="edit-carousel">
+    <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2 edit-button" (click)='edit(carouselimages.id)'></i>
+  </div> 
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let img of carouselimages; let i = index" [class.active]="i === 0">
+        <img class="d-block images-carousel" [src]="imagesUrl + img.imageUrl" [alt]="'Slide ' + (i + 1)">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- <span class="background container">
+    <section class="gallery">
+      <section class="img-card">
+          <img src="../../../assets/orase/bacau.jpg" alt="Bacau" />
+      </section>
+
+      <section class="img-card">
+          <img src="../../../assets/orase/focsani.png" alt="Focsani" />
+      </section>
+
+      <section class="img-card">
+          <img src="../../../assets/orase/galati.jpg" alt="Galati" />
+      </section>
+
+      <section class="img-card">
+          <img src="../../../assets/orase/vaslui.jpg" alt="Vaslui" />
+      </section>
+    </section>
+  </span> -->
+
+
+  

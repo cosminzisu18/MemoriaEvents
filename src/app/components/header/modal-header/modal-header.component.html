@@ -1,0 +1,26 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza Header</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="antettext" class="form-label">AntetText</label>
+            <input type="text" class="form-control" id="antettext" [(ngModel)] = "modal.antetText" name="antettext"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+  
+          <div class="mb-3">
+            <label for="buttontext" class="form-label">ButtonText</label>
+            <input type="buttontext" class="form-control" id="buttontext" [(ngModel)] = "modal.buttonText" name="buttontext" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

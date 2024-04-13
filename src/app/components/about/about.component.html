@@ -1,0 +1,39 @@
+<div id="viziune">
+    <div class="container" >
+        <div *ngIf="isAuthorized">
+            <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2 edit-button" (click)='editHeader(about.id)'></i>
+        </div>
+        <div class="text-center">
+            <h2 class="display-4 text-uppercase" data-aos="fade-down" data-aos-duration="2000">{{about.title}}</h2>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-6">
+                <div class="about_header_main mt-3">
+                    <h4 class="about_heading font-weight-bold mt-4" style="color:rgb(109, 95, 3);" data-aos="fade-right" data-aos-duration="2000">{{about.subtitle}}</h4>
+                    <p class="about-par text-muted mt-3" data-aos="fade-left" data-aos-duration="2500">{{about.text1}}</p>
+                    <p class="about-par text-muted mt-3" data-aos="fade-right" data-aos-duration="3000">{{about.text2}} </p>
+
+                    <!-- <p class="text-muted mt-3"> Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.</p> -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="img_about mt-3">
+                    <img src="../../../assets/about-us/event-c.jpg" style="border-radius: 5px;" data-aos="fade-left" data-aos-duration="2000" alt="Event Planning" class="img-fluid mx-auto d-block img-about">
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="row mt-3 caracteristics">
+            <div class="col-lg-4" *ngFor="let quality of about.aboutQualities" data-aos="fade-up" data-aos-duration="2000">
+            <div class="about_content_box_all mt-3">
+                <div class="about_detail text-center">
+                <div class="about_icon" [innerHTML]="quality.iconQualities"></div>
+                <h5 class="text-dark text-capitalize mt-3 font-weight-bold">{{ quality.titleQualities }}</h5>
+                <p class="edu_desc mt-3 mb-0 text-muted">{{ quality.textQualities }}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

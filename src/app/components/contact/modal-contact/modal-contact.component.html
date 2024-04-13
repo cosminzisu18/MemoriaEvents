@@ -1,0 +1,31 @@
+<div class='modal-header'>
+    <h4 class='modal-title'>Editeaza Contact</h4>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form #form="ngForm">
+          <div class="mb-3">
+            <label for="adresa" class="form-label">Adresa</label>
+            <input type="text" class="form-control" id="antettext" [(ngModel)] = "modal.address" name="adresa"  [ngClass]='showError && !modal.nameEmployer ? "error" : ""' placeholder="Enter name">
+          </div>
+  
+          <div class="mb-3">
+            <label for="phone" class="form-label">Nr. telefon</label>
+            <input type="phone" class="form-control" id="phone" [(ngModel)] = "modal.number" name="phone" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)] = "modal.email" name="email" [ngClass]='showError && !modal.buttontextEmployer? "error" : ""' placeholder="Enter buttontext">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='modal-footer'>
+    <button type="submit" class="btn btn-primary" (click)="save()" >Submit</button>
+    <button type='button' class='btn btn-secondary' (click)='activeModal.dismiss()'>Cancel</button>
+  </div>
+  

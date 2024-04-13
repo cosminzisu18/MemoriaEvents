@@ -1,0 +1,61 @@
+.container-fluid{
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .bg-login{
+    background: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80') no-repeat center;
+    backgorund-size: cover;
+     height: 100vh;
+  }
+  
+  h1{
+    font-size: 50px !important;  
+  }
+  
+  .login-area{
+    background-color: #fff;
+    height: 100vh;
+  }
+  
+  .input-group-text i {
+    font-size: 13px !important;
+    color: #777;
+    text-align: center;
+  }
+  
+  .input-group-text{
+    width: 40px !important;
+    background-color: #f4f4f4 !important;
+  }
+  
+  input, .input-group-text{
+    border: 1px solid #f0f0f0 !important;
+  }
+  
+  button{
+    font-weight: 600 !important;
+  }
+  
+  .content, form {
+    position: relative;
+    top: 20vh;
+    padding: 0 30px;
+  }
+  
+  .content .brand{
+    margin-bottom: 20px;
+    color: #fff
+  }
+  .content span {
+    font-weight: 600;
+    color: #edd;
+  }
+  
+  @media (min-width: 300px) and (max-width: 12000px) {
+    .bg-login { display: block}
+  }
+  
+  @media (min-width: 0px) and (max-width: 300px) {
+    .bg-login { display: none}
+  }

@@ -1,0 +1,33 @@
+#viziune{
+  background-color: rgb(243, 241, 241);
+}
+.fadeIn {
+    animation: fadeInAnimation 1s ease-out forwards;
+  }
+  
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .fadeOut {
+    animation: fadeOutAnimation 1s ease-out forwards;
+  }
+  
+  @keyframes fadeOutAnimation {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+  

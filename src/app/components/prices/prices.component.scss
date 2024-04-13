@@ -1,0 +1,88 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+}
+#prețuri{
+  background-color: rgb(243, 241, 241);
+}
+
+.heading{
+  margin-bottom: 20px;
+  margin-left: 30%;
+}
+.characteristic{
+  margin-left: 30%;
+  list-style-type: none;
+}
+.subtitle {
+  font-size: 1.25rem; 
+  color: #333; 
+  margin-bottom: 1rem; 
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+img {
+  width: 700px; 
+  height: 400px;
+  object-fit: cover; 
+  border-radius: 4%; 
+  margin-right: 10px; 
+}
+
+.right-text {
+  flex: 1;
+}
+
+.pricing-card {
+  padding: 20px;
+}
+
+.section:nth-child(odd) {
+  flex-direction: row; 
+}
+
+.section:nth-child(even) {
+  flex-direction: row-reverse; 
+}
+
+.fa-check{
+  color: green;
+}
+
+@media only screen and (max-width: 767px) {
+  .section {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  img {
+    width: 100%; 
+    height: auto; 
+    margin-right: 0; 
+    border-radius: 0;
+    margin-bottom: 20px; 
+  }
+
+  .right-text,
+  .left-text {
+    padding-left: 0; 
+    width: 100%;
+  }
+
+  .container{
+    padding-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}
+
+

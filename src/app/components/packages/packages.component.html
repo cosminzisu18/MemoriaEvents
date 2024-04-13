@@ -1,0 +1,25 @@
+<div class="container" id="pachete">
+    <div class="text-center">
+        <h2 class="display-4 text-uppercase" data-aos="fade-down" data-aos-duration="2000">{{ packages[0]?.titleSubtitle?.title }}</h2>
+        <h3 class="small subtitle text-muted" data-aos="fade-up" data-aos-duration="2000">{{ packages[0]?.titleSubtitle?.subTitle }} <a href="#contact" style="text-decoration: none; color: rgb(115, 98, 2);">contactați-ne</a></h3>
+    </div>
+    <div class="inner" data-aos="flip-up" data-aos-duration="3000">
+        <div class="common__inner" *ngFor="let package of packages; let i = index" [class]="'inner' + (i + 1)" >
+            <div *ngIf="isAuthorized">
+                <i class="fa-solid fa-pen-to-square text-white position-absolute bg-danger rounded-circle p-2" style="cursor: pointer;" (click)='edit(package.id)'></i>
+            </div>
+            <div class="button"><button>{{ package.packagePrice }} lei</button></div>
+            <span class="fa-stack fa-4x">
+                <i class="fa fa-star fa-stack-1x" [ngStyle]="{ color: getColor(i) }" aria-hidden="true"></i> 
+            </span>
+            <div class="title">{{ package.packageType }}</div>
+            <div class="desc">{{ package.packageInfo }}</div>
+            <ul style="list-style-type: none;">
+                <li *ngFor="let service of package.services">
+                    <i class="fa fa-check mr-2" aria-hidden="true"></i> {{ service }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
