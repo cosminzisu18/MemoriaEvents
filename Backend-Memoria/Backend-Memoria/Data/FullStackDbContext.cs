@@ -41,6 +41,7 @@ namespace Backend_Memoria.Data
      
         }
         public DbSet<Backend_Memoria.Models.SocialMedia> SocialMedia { get; set; }
+        public DbSet<Backend_Memoria.Models.Location> Location { get; set; }
       
      
       

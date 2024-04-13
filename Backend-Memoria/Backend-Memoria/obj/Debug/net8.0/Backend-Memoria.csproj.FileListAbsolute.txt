@@ -250,3 +250,4 @@ E:\memoria-events\Backend-Memoria\Backend-Memoria\bin\Debug\net8.0\runtimes\win\
 E:\memoria-events\Backend-Memoria\Backend-Memoria\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 E:\memoria-events\Backend-Memoria\Backend-Memoria\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\memoria-events\Backend-Memoria\Backend-Memoria\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+E:\memoria-events\Backend-Memoria\Backend-Memoria\obj\Debug\net8.0\Backend-Memoria.sourcelink.json
