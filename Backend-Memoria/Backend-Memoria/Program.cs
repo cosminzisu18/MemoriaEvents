@@ -28,7 +28,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseCors(policy => policy.WithOrigins("http://localhost:4200")
+app.UseCors(policy => policy.WithOrigins("http://localhost:4200", "https://memoriaevents.ro")
                               .AllowAnyHeader()
                               .AllowAnyMethod());
 

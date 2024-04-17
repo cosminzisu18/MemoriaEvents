@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Backend-Memoria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95ac4f2f6319c64928eccaf7948d758c426e1b86")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0433588c2b467e77a4cc9e3e4df0a97cc3d47bad")]
 [assembly: System.Reflection.AssemblyProductAttribute("Backend-Memoria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Backend-Memoria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
